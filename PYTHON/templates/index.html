@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama PL-R</title>
+</head>
+<body>
+    <h1>¿Qué distancia vas a recorrer?</h1>
+    <form method="post">
+        <label for="distancia">Distancia (km):</label>
+        <input type="text" id="distancia" name="distancia" required><br><br>
+        <input type="submit" value="Calcular">
+    </form>
+    <br>
+    {% if avion %}
+        <h2>El avión idóneo para esta ruta es el {{ avion }}</h2>
+        <p>Valor de K para este avión: {{ K }}</p>
+        <br>
+        <img src="data:image/png;base64,{{ img_base64 }}" alt="Diagrama PL-R">
+        <p>{{ mensaje }}</p>
+    {% elif error %}
+        <h2>La distancia ingresada es mayor que el alcance máximo de todos los aviones disponibles.</h2>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
